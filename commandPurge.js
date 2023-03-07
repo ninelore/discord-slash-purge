@@ -1,4 +1,9 @@
 const { REST, Routes } = require('discord.js');
+const fs = require('node:fs');
+
+if (fs.existsSync('.env')) {
+  require('dotenv').config({ path: '.env' });
+}
 
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
